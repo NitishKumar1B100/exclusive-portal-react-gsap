@@ -68,7 +68,7 @@ export function SplitImage({ image, alt, children, reverse = false }: { image: s
 
 export function IconPanel({ title, copy, icon: Icon }: { title: string; copy: string; icon: IconType }) {
   return (
-    <article className="group border border-white/10 bg-white/[0.04] p-6 transition duration-500 hover:-translate-y-1 hover:border-[#c6a15b]/60 hover:bg-white/[0.07]">
+    <article className="group border border-white/10 bg-white/[0.04] p-6 transition-colors duration-300 hover:border-[#c6a15b]/60 hover:bg-white/[0.07]">
       <Icon className="text-[#d9b76f]" size={28} />
       <h3 className="mt-8 font-serif text-3xl text-white">{title}</h3>
       <p className="mt-4 leading-7 text-stone-300">{copy}</p>
@@ -80,7 +80,7 @@ export function EventCard({ event }: { event: (typeof events)[number] }) {
   return (
     <article className="group overflow-hidden border border-white/10 bg-white/[0.04]">
       <div className="overflow-hidden">
-        <img className="aspect-[4/5] w-full object-cover transition duration-700 group-hover:scale-105" src={event.image} alt={event.title} />
+        <img className="aspect-[4/5] w-full object-cover transition-transform duration-700 group-hover:scale-105" src={event.image} alt={event.title} />
       </div>
       <div className="p-6">
         <p className="text-sm uppercase tracking-[0.18em] text-[#d9b76f]">{event.type}</p>
@@ -96,7 +96,7 @@ export function EventCard({ event }: { event: (typeof events)[number] }) {
 
 export function EventRow({ event }: { event: (typeof events)[number] }) {
   return (
-    <Link to={`/events/${event.slug}`} className="grid gap-4 border border-[#d2bd8a] bg-white p-4 transition hover:border-[#6d141b] md:grid-cols-[0.38fr_1fr_auto] md:items-center">
+    <Link to={`/events/${event.slug}`} className="grid gap-4 border border-[#d2bd8a] bg-white p-4 transition-colors duration-200 hover:border-[#6d141b] md:grid-cols-[0.38fr_1fr_auto] md:items-center">
       <img className="aspect-[5/3] w-full object-cover" src={event.image} alt="" />
       <div>
         <p className="text-sm uppercase tracking-[0.16em] text-[#8c6c32]">{event.date} | {event.city}</p>
@@ -147,7 +147,7 @@ export function InquiryForm({ title, compact = false }: { title: string; compact
           <input className="field" placeholder="Enquiry type" />
         </div>
         <textarea className="field mt-5 min-h-36 w-full py-4" placeholder="How may the membership team assist?" />
-        <button className="mt-6 inline-flex h-13 items-center justify-center gap-2 bg-[#17100b] px-6 text-sm uppercase tracking-[0.16em] text-white transition hover:bg-[#6d141b]" type="submit">
+        <button className="mt-6 inline-flex h-13 items-center justify-center gap-2 bg-[#17100b] px-6 text-sm uppercase tracking-[0.16em] text-white transition-colors duration-200 hover:bg-[#6d141b]" type="submit">
           Send enquiry <Send size={16} />
         </button>
       </div>
@@ -163,7 +163,7 @@ export function ButtonLink({ to, children, variant = 'default' }: { to: string; 
   }
 
   return (
-    <Link to={to} className={`inline-flex min-h-12 items-center justify-center gap-2 border px-5 text-sm uppercase tracking-[0.16em] transition ${classes[variant]}`}>
+    <Link to={to} className={`inline-flex min-h-12 items-center justify-center gap-2 border px-5 text-sm uppercase tracking-[0.16em] transition-colors duration-200 ${classes[variant]}`}>
       {children} <ArrowRight size={16} />
     </Link>
   )

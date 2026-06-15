@@ -27,13 +27,13 @@ export function Portal() {
         <form onSubmit={handleSubmit} className="grid gap-5 border border-[#c6a15b]/40 bg-[#f4efe4] p-6 text-[#17100b] sm:p-8">
           <label className="grid gap-2">
             <span className="text-sm uppercase tracking-[0.18em] text-[#7c5e2d]">Email</span>
-            <input className="h-13 border border-[#d2bd8a] bg-white px-4 outline-hidden transition focus:border-[#6d141b]" type="email" placeholder="member@aurum.house" required />
+            <input className="h-13 border border-[#d2bd8a] bg-white px-4 outline-hidden transition-colors duration-200 focus:border-[#6d141b]" type="email" placeholder="member@aurum.house" required />
           </label>
           <label className="grid gap-2">
             <span className="text-sm uppercase tracking-[0.18em] text-[#7c5e2d]">Password</span>
-            <input className="h-13 border border-[#d2bd8a] bg-white px-4 outline-hidden transition focus:border-[#6d141b]" type="password" placeholder="Password" required />
+            <input className="h-13 border border-[#d2bd8a] bg-white px-4 outline-hidden transition-colors duration-200 focus:border-[#6d141b]" type="password" placeholder="Password" required />
           </label>
-          <button className="mt-2 flex h-13 items-center justify-center gap-2 bg-[#6d141b] px-5 text-sm uppercase tracking-[0.16em] text-white transition hover:bg-[#17100b]" type="submit">
+          <button className="mt-2 flex h-13 items-center justify-center gap-2 bg-[#6d141b] px-5 text-sm uppercase tracking-[0.16em] text-white transition-colors duration-200 hover:bg-[#17100b]" type="submit">
             Sign in <ArrowRight size={16} />
           </button>
         </form>

@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useLayoutEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -8,38 +8,39 @@ gsap.registerPlugin(ScrollTrigger)
 export function usePageMotion() {
   const location = useLocation()
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' })
 
     const ctx = gsap.context(() => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+
       gsap.fromTo(
         '.page-shell',
-        { autoAlpha: 0, y: 18 },
-        { autoAlpha: 1, y: 0, duration: 0.75, ease: 'power3.out' },
+        { autoAlpha: 0 },
+        { autoAlpha: 1, duration: 0.35, ease: 'power2.out' },
       )
 
       gsap.fromTo(
         '[data-hero-motion] > *',
-        { autoAlpha: 0, y: 34, filter: 'blur(10px)' },
+        { autoAlpha: 0, y: 28 },
         {
           autoAlpha: 1,
           y: 0,
-          filter: 'blur(0px)',
-          duration: 1.1,
+          duration: 0.9,
           ease: 'power3.out',
-          stagger: 0.11,
-          delay: 0.1,
+          stagger: 0.08,
+          delay: 0.05,
         },
       )
 
       gsap.utils.toArray<HTMLElement>('[data-reveal]').forEach((element) => {
         gsap.fromTo(
           element,
-          { autoAlpha: 0, y: 44 },
+          { autoAlpha: 0, y: 18 },
           {
             autoAlpha: 1,
             y: 0,
-            duration: 0.95,
+            duration: 0.65,
             ease: 'power3.out',
             scrollTrigger: { trigger: element, start: 'top 84%', once: true },
           },
@@ -51,13 +52,13 @@ export function usePageMotion() {
 
         gsap.fromTo(
           children,
-          { autoAlpha: 0, y: 30 },
+          { autoAlpha: 0, y: 20 },
           {
             autoAlpha: 1,
             y: 0,
-            duration: 0.8,
+            duration: 0.6,
             ease: 'power3.out',
-            stagger: 0.08,
+            stagger: 0.055,
             scrollTrigger: { trigger: element, start: 'top 84%', once: true },
           },
         )
@@ -75,6 +76,8 @@ export function usePageMotion() {
           },
         })
       })
+
+      requestAnimationFrame(() => ScrollTrigger.refresh())
     })
 
     return () => ctx.revert()

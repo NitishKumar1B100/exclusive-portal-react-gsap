@@ -28,7 +28,7 @@ export function Header() {
               key={item.path}
               to={item.path}
               className={({ isActive }) =>
-                `px-3 py-2 text-sm uppercase tracking-[0.14em] transition ${
+                `px-3 py-2 text-sm uppercase tracking-[0.14em] transition-colors duration-200 ${
                   isActive ? 'text-[#d9b76f]' : 'text-stone-300 hover:text-white'
                 }`
               }
@@ -40,7 +40,7 @@ export function Header() {
 
         <Link
           to="/membership"
-          className="hidden items-center gap-2 border border-[#c6a15b]/50 px-4 py-3 text-sm uppercase tracking-[0.14em] text-[#f4dfab] transition hover:bg-[#c6a15b] hover:text-[#17100b] md:flex"
+          className="hidden items-center gap-2 border border-[#c6a15b]/50 px-4 py-3 text-sm uppercase tracking-[0.14em] text-[#f4dfab] transition-colors duration-200 hover:bg-[#c6a15b] hover:text-[#17100b] md:flex"
         >
           Apply <ArrowRight size={16} />
         </Link>
